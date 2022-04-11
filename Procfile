@@ -1,1 +1,1 @@
-web: gunicorn Kursovaya.wsgi --log-file -
+web: gunicorn kursovaya.wsgi --log-file -
