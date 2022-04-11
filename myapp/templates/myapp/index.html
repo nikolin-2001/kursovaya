@@ -1,0 +1,38 @@
+{% include "myapp/includes/saitbar.html" %}
+{% include "myapp/includes/style.html" %}
+<body class="body-ramki" >
+<div style="display: flex; justify-content: center;">
+
+
+
+<div>
+    <table>
+         {% for e in products %}
+          <div>
+          <tr class="preview-product">
+             <td ><img src='{{ e.image }}' alt = ''  style="object-fit: cover" /></td>
+             <td width="630">
+                  <h2 style="text-align: center">{{ e.name }}</h2>
+                   <div class="p-description" style="text-align: justify; padding-right: 15px; font-size: 125%;"><t>{{ e.description }}</t></div>
+             </td>
+               <td width="100" style="text-align: center">
+                   <t> Средний балл группы:</t>
+                    <h2 style="color: #ff8d02 !important"><b>{{ e.average}}</b></h2>
+                            <div>
+             </td>
+               <td width="100" style="text-align: center">
+             <div style="text-align: center">
+                          <a href="/api/myapp/{{ e.id }}"<button class="btn2 btn22 btn23">Открыть</a>
+                 </td>
+             </button>
+             </div>
+               </td>
+                </div>
+         {% endfor %}
+    </table>
+</div>
+
+
+</div>
+</body>
+</html>

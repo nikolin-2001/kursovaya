@@ -4,6 +4,7 @@ from rest_framework import status
 from .models import Discipline
 from .serializers import DisciplineSerializer
 from rest_framework.decorators import api_view
+from rest_framework import viewsets
 
 from django.shortcuts import render
 
@@ -11,8 +12,11 @@ from django.shortcuts import render
 def index(request):
     products = Discipline.objects.order_by('-id')
     context = {'products': products}
-    return render(request, 'tutorials/index.html', context)
+    return render(request, 'myapp/index.html', context)
 
+class DisciplineViewSet(viewsets.ModelViewSet):
+    queryset = Discipline.objects.all().order_by('name')
+    serializer_class = DisciplineSerializer
 
 @api_view(['GET', 'POST', 'DELETE'])
 def discipline_list(request):
